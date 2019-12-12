@@ -12,14 +12,13 @@ export class TodoWidget {
     return (
       <div class="todo-widget">
         <div class="todo-widget__header">
-          <span class="todo-widget__header__widget-name">Todos</span>
-          <span class="todo-widget__header__widget-filter">
-                <limel-select label="Show"></limel-select>
-          </span>
-
+          <div class="todo-widget__header__widget-name">Todos</div>
+          <div class="todo-widget__header__widget-filter">
+          </div>
+          <div class="todo-widget__header__widget-table-view">
+          </div>
         </div>
         <div class="todo-widget__sorting">
-          <div class="todo-widget__sorting__cell">&#8285;</div>
           <div class="todo-widget__sorting__cell">&#8285;</div>
           <div class="todo-widget__sorting__cell">&#8285;</div>
           <div class="todo-widget__sorting__cell">&#8285;</div>
@@ -44,9 +43,6 @@ export class TodoWidget {
             <div class="todo__subject">This subject is a very very very long looooong looooong long</div>
             <div class="todo__description">This is an example of an overdue task. Overdue tasks will by default be placed on top of the "Today's" tasks.</div>
             </div>
-            <div class="todo-widget__list__row__cell">
-              &#8285;
-            </div>
           </div>
           {this.todoListData.map(todo => [
             <div class="todo-widget__list__row">
@@ -70,9 +66,6 @@ export class TodoWidget {
               <div class="todo-widget__list__row__cell">
                 <div class="todo__subject">{todo.todo_subject}</div>
                 <div class="todo__description">{todo.todo_description}</div>
-              </div>
-              <div class="todo-widget__list__row__cell">
-                &#8285;
               </div>
             </div>
             ])
