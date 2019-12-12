@@ -109,6 +109,8 @@ $lime-dark-grey: #575756;
 // Todo items
 
 .todo__time-info {
+ padding-left: 20px;
+
  &.is-overdue {
   color: $lime-deep-red;
  }
@@ -125,6 +127,43 @@ $lime-dark-grey: #575756;
  }
  &__due-date__time {
   font-size: 14px;
+ }
+
+ &__due-date__time__end {
+  font-size: 14px;
+
+  position: relative;
+  &:after,
+  &:before {
+   content: '';
+
+   display: block;
+   position: absolute;
+  }
+
+  &:before {
+   bottom: 8px;
+   left: -10px;
+   width: 2px;
+   height: 17px;
+   z-index: 1;
+
+   background-color: rgba(black, .1);
+   border-top: 3px solid $lime-green;
+   border-bottom: 2px solid #fff;
+   border-radius: 8px;
+  }
+
+  &:after {
+   bottom: 6px;
+   left: -12px;
+   width: 6px;
+   height: 6px;
+   z-index: 0;
+
+   background-color: rgba($lime-red, .6);
+   border-radius: 100%;
+  }
  }
 }
 

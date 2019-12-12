@@ -56,7 +56,7 @@ export class TodoWidget {
                 <div class="todo__time-info__due-date__time">
                   {todo.dueDate_time}
                 </div>
-                <div class="todo__time-info__due-date__time">
+                <div class="todo__time-info__due-date__time__end">
                   {todo.dueDate_time_end}
                 </div>
               </div>
