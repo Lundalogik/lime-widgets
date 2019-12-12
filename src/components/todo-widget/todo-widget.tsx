@@ -46,6 +46,10 @@ export class TodoWidget {
           </div>
           {this.todoListData.map(todo => [
             <div class="todo-widget__list__row">
+              <div class="todo__action-button-group">
+                <limel-button class="todo__action-button-group__postpone" label="&#x2609; Postpone"></limel-button>
+                <limel-button class="todo__action-button-group__done" label="&#x2609; Mark as done"></limel-button>
+              </div>
               <div class="todo-widget__list__row__cell todo__time-info">
                 <div class="todo__time-info__due-date__day">
                   {todo.dueDate_day}
@@ -78,6 +82,7 @@ export class TodoWidget {
           </div>
         </div>
       </div>
+
     );
   }
 }

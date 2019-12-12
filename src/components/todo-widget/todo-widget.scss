@@ -68,6 +68,8 @@ $lime-dark-grey: #575756;
 
 .todo-widget__sorting__cell,
 .todo-widget__list__row {
+ position: relative;
+
  border-bottom: 1px solid #eaeaea;
 }
 
@@ -105,8 +107,68 @@ $lime-dark-grey: #575756;
 }
 
 
+
+
 // ============
 // Todo items
+
+.todo__action-button-group {
+ display: none;
+ position: absolute;
+ top: 8px;
+ right: 0;
+ z-index: 1;
+
+
+
+ &__done,
+ &__postpone {
+  margin: 0 8px 0 0;
+
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .06), 0 1px 1px rgba(0, 0, 0, .1);
+  opacity: 0;
+
+  animation: display-todo-action-buttons .5s ease forwards;
+  transition: background-color .2s ease, box-shadow .1s ease;
+
+  &:hover {
+   background-color: #fafafa;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, .06), 0 1px 2px rgba(0, 0, 0, .1);
+  }
+  &:active {
+   box-shadow: 0 1px 2px rgba(0, 0, 0, .06), 0 0 1px rgba(0, 0, 0, .1);
+  }
+ }
+ &__done {
+  animation-delay: .4s;
+ }
+ &__postpone {
+  animation-delay: .5s;
+ }
+}
+
+.todo-widget__list__row {
+ &:hover {
+  .todo__action-button-group {
+   display: block;
+  }
+ }
+}
+
+@keyframes display-todo-action-buttons {
+ 0% {
+  opacity: 0;
+
+  transform: translateX(4px);
+ }
+ 100% {
+  opacity: 1;
+
+  transform: translateX(0);
+ }
+}
 
 .todo__time-info {
  padding-left: 20px;
