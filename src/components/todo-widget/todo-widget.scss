@@ -1,0 +1,167 @@
+$lime-deep-red: #f05750;
+$lime-red: #ff7043;
+$lime-orange: #ffb03b;
+$lime-yellow: #ffcf3d;
+$lime-green: #66bb6a;
+$lime-turquoise: #26a69a;
+$lime-blue: #29b6f6;
+$lime-dark-blue: #57879f;
+$lime-magenta: #ff3195;
+$lime-light-grey: #adadad;
+$lime-dark-grey: #575756;
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+// TODO: remove the above lines, and replace color constants with CSS variables
+// TODO: they use rem for sizes, not pixels. Convert them later
+
+
+.todo-widget {
+ font-family: 'Roboto', sans-serif; // this can be removed
+
+ position: relative;
+ max-width: 800px;
+ margin: 80px auto; // TODO: this can be removed in production
+
+ color: rgba(black,.6); // this can be removed
+ box-shadow: 0 0 .1875rem rgba(0,0,0,.2); //this is copied from .lime-widget
+}
+
+.todo-widget__header {
+ font-weight: bold;
+ line-height: 40px;
+
+ height: 40px;
+ padding: 0 12px;
+
+ background-color: #fafafa;
+}
+
+.todo-widget__sorting {
+ border-top: 1px solid #eaeaea;
+}
+
+.todo-widget__sorting__cell {
+ font-size: 16px;
+ line-height: 32px;
+
+ min-height: 32px;
+ padding: 0 12px 0 0;
+
+ border-right: 1px solid #eaeaea;
+
+ text-align: right;
+}
+
+.todo-widget__list {
+ max-height: 600px; //The max height should be in correlation with the max height of the widget (if there is any)! Height of headers and sorting should be excluded. This can be even based on calc and some constants for other heights
+ overflow-y: auto;
+}
+
+
+.todo-widget__sorting,
+.todo-widget__list__row {
+ display: grid;
+
+ grid-auto-rows: auto;
+ grid-template-columns: 1fr 40px 8fr 40px;
+}
+
+.todo-widget__sorting__cell,
+.todo-widget__list__row {
+ border-bottom: 1px solid #eaeaea;
+}
+
+// interactivity
+.todo-widget__sorting__cell,
+.todo-widget__list__row {
+ transition: background-color .2s ease, box-shadow .1s ease;
+
+ cursor: pointer;
+ &:hover {
+  background-color: #fafafa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .06), 0 1px 2px rgba(0, 0, 0, .1);
+ }
+ &:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .06), 0 0 1px rgba(0, 0, 0, .1);
+ }
+}
+
+.todo-widget__list__row__cell {
+ padding: 12px;
+}
+
+.todo-widget__list__day-divider {
+ font-size: 12px;
+ line-height: 24px;
+
+ position: sticky;
+ top: 0;
+ height: 24px;
+ padding: 0 12px;
+ z-index: 1;
+
+ color: rgba(black, .5);
+ background-color: #eaeaea;
+}
+
+
+// ============
+// Todo items
+
+.todo__time-info {
+ &.is-overdue {
+  color: $lime-deep-red;
+ }
+ &__due-date__day {
+  font-size: 26px;
+ }
+ &__due-date__month {
+  font-size: 14px;
+  font-weight: 100;
+
+  margin-bottom: 12px;
+
+  opacity: .5;
+ }
+ &__due-date__time {
+  font-size: 14px;
+ }
+}
+
+
+
+.todo__subject {
+ font-size: 14px;
+ font-weight: bold;
+
+ margin-bottom: 12px;
+ overflow: hidden;
+
+ text-overflow: ellipsis;
+ white-space: nowrap;
+}
+
+.todo__description {
+ font-size: 13px;
+}
+
+
+.todo__prio {
+ //
+}
+
+.todo__prio__badge {
+ font-size: 12px;
+ line-height: 20px;
+
+ width: 20px;
+ height: 20px;
+ margin: 4px auto;
+ padding: 0;
+
+ color: #fff;
+ background-color: #ccc;
+ border-radius: 100px;
+
+ text-align: center;
+}
